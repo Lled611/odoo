@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <!-- <field name="name">Quotations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_id" ref="view_quotation_tree_with_onboarding"/>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+        <field name="search_view_id" ref="sale_order_view_search_inherit_quotation"/> -->
+        <field name="context">{'search_default_my_quotation': 1, 'default_test': 'rand_test'}</field>
+        <!-- <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new quotation, the first step of a new sale!
+            </p><p>
+            Once the quotation is confirmed by the customer, it becomes a sales order.<br/> You will be able to create an invoice and collect the payment.
+            </p>
+        </field> -->
+    </record>
+    <!-- <record id="sale_order_action" model="ir.actions.act_window">
+        <field name="name">Sale order action</field>
+        <field name="res_model">sale.order</field>
+        <field name="context">{'default_test': 'OK123'}</field>
+        <field name="view_mode">tree,form</field>
+    </record> -->
+    <record id="sale_order_view_form_test" model="ir.ui.view">
+        <field name="name">sale.order.form.test</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                <field name="test" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

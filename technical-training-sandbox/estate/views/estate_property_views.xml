@@ -5,4 +5,41 @@
         <field name="res_model">estate.property</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="estate_property_view_tree" model="ir.ui.view">
+        <field name="name">Estate property view tree</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="name" />
+                <field name="postcode" />
+                <field name="bedrooms" />
+                <field name="living_area" />
+                <field name="expected_price" />
+                <field name="selling_price" />
+                <field name="date_availability" />
+            </tree>
+        </field>
+    </record>
+    <record id="estate_property_view_form" model="ir.ui.view">
+        <field name="name">Estate property view form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Estate property view form string">
+                <sheet>
+                    <field name="postcode" />
+                    <field name="date_availability" />
+                    <field name="expected_price" />
+                    <field name="selling_price" />
+                    <field name="description" />
+                    <field name="bedrooms" />
+                    <field name="living_area" />
+                    <field name="facades" />
+                    <field name="garage" />
+                    <field name="garden" />
+                    <field name="garden_area" />
+                    <field name="garden_orientation" />
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>
