@@ -5,6 +5,7 @@
     ],
     'application': True,
     'data': [
-        'views/sale_order.xml'
+        'views/sale_order.xml',
+        'report/sale_report.xml'
     ]
 }

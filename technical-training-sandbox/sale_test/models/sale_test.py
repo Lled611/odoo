@@ -11,12 +11,7 @@ class SaleResponsible(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    date_order = fields.Datetime(
-        # string="Order Date",
-        # required=True, readonly=False, copy=False,
-        # states=READONLY_FIELD_STATES,
-        # help="Creation date of draft/sent orders,\nConfirmation date of confirmed orders.",
-        default=None)
+    date_order = fields.Datetime(default=None)
 
     @api.onchange('date_order', 'order_line')
     def onchange_date_order_amount_total(self):
@@ -29,8 +24,9 @@ class SaleResponsible(models.Model):
     @api.constrains('test')
     def check_test(self):
         for record in self:
-            if len(record.test) > 50:
-                raise ValidationError(_('The length of the text must be less than 50 characters!'))
+            if record.test:
+                if len(record.test) > 50:
+                    raise ValidationError(_('The length of the text must be less than 50 characters!'))
     
     @api.model
     def default_get(self, fields):
